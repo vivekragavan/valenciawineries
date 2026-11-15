@@ -56,6 +56,6 @@ Note: Homepage 02–05 are leftover theme demo pages; deleting them in WordPress
 | Meet Angela Cohen, Wine Ambassador | /meet-angela-cohen-wine-ambassador/ |
 | DiWine Winery 2018 Holiday Gift Guide | /diwine-winery-2018-holiday-gift-guide-elegant-gifts-for-wine-lovers/ |
 
-**Category and tag pages** (/category/…, /tag/…) were also removed from the preview because they only listed these posts. On the live site they disappear by themselves once the posts are deleted; optionally tidy up Posts > Categories and Posts > Tags.
+**Category and tag pages** (/category/…, /tag/…) were also removed from the preview because they only listed these posts. Not needed on the live site. They disappear by themselves once the posts are deleted; also delete the categories and tags themselves under Posts > Categories and Posts > Tags (tick all > Bulk actions > Delete; "Uncategorized" can't be deleted, which is fine).
 
 **After deleting the spam post:** change the WordPress admin passwords and check Users for any account you don't recognise. The spam post suggests someone got access.
