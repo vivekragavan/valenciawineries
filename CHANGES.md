@@ -101,3 +101,23 @@ Careful: before trashing Cart 2 / Checkout 2 / My Account 2, check WooCommerce >
 ## 6. Footer credit line removed
 - **Preview change:** "©2020 Valencia Wineries. Designed and Developed by ©Techinfinity" removed from the footer of every page (it appeared nowhere else). The small "Privacy Policy" link stays in that spot.
 - **Live site (WordPress):** Appearance > Widgets > Footer area > the block containing "©2020 Valencia Wineries… Techinfinity" > delete that text, leaving only the "Privacy Policy" link (added in change 5) > Update. If the text isn't in Widgets, look in Appearance > Customize > Footer (theme options) for a "copyright" field.
+
+## 7. Online buying turned off (wine shown, not sold)
+- **Preview changes:**
+  - Top right of every page: shopping-cart bubble ("$0.00"), its "ORDER LIST" drawer and the "Login / Register" person icon removed. Search icon kept.
+  - Wine tab (/shop/): heading "Shop" → "Our Wines"; prices and "Add to cart" buttons removed. Both wines still shown with photos, linking to their pages.
+  - Wine pages (Cabernet Sauvignon 2017 and 2018): price, quantity box, "Add to cart", "ADD CASE (1 x 6)", PayPal button, SKU and "Category: Reserve" removed. Description, photos and "Can we interest you in… Something similar" (the other wine) kept.
+  - Homepage: the three slideshow "Shop Now" buttons → "See Our Wines"; "Our Signature Wines" slider "BUY NOW" buttons → "VIEW WINE"; the "Shop our Wines" box heading → "Our Wines" and its "Shop Now" button → "See Our Wines". The box text ("…A number of our red wines are ready now") was left as is.
+  - "Reserve" wine category page (/product-category/reserve/) deleted.
+- **Live site (WordPress):** take WooCommerce out of selling mode while keeping the wine pages:
+  1. **Back up first** (Hostinger hPanel > Backups, or a backup plugin).
+  2. **Make the wines non-purchasable:** Products > All Products > edit each wine > Product data > General > clear "Regular price" > Update. With no price, WooCommerce hides the price and "Add to cart". (If the theme still shows "ADD CASE", note it and I'll find the setting.)
+  3. **PayPal:** WooCommerce > Settings > Payments > turn off PayPal (and any other method).
+  4. **Header cart bubble and Login / Register icon:** Appearance > Customize > (theme) Header / WooCommerce options > turn off the cart / account icons. If there's no option, tell me and I'll find where the theme adds them.
+  5. **Homepage wording:** Pages > Home > edit with WPBakery:
+     - Slideshow (Ozy Hero Slider) > each of the 3 slides > button text "Shop Now" → "See Our Wines".
+     - "Our Signature Wines" (Ozy Tilt Product Slider) > each slide > button "BUY NOW" → "VIEW WINE".
+     - "Shop our Wines" hover box > heading → "Our Wines"; button "Shop Now" → "See Our Wines". > Update.
+  6. **Wine tab heading:** Pages > Shop > edit with WPBakery > heading "Shop" → "Our Wines" > Update.
+  7. **Reserve category:** Products > Categories > "Reserve" > Delete (the wines fall back to "Uncategorized").
+  8. Optional later: once nothing is sold, the Cart, Checkout and My Account pages can be trashed (Pages), and WooCommerce > Settings > Advanced page settings cleared.
