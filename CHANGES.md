@@ -82,3 +82,18 @@ Careful: before trashing Cart 2 / Checkout 2 / My Account 2, check WooCommerce >
 **Event calendar** (demo events from the "Timetable and Event Schedule" plugin: weddings, DiWineFest 2019, tastings, dinners…, about 35 pages under /timetable/)
 - Timetable > Events > select all > Move to Trash; Timetable > Columns > select all > Move to Trash; empty the Trash.
 - Then Plugins > "Timetable and Event Schedule" > Deactivate > Delete (it isn't used anywhere else).
+
+## 5. Footer "Quick Links" removed, Terms and Refund pages deleted (incl. escort spam), short Privacy Policy, demo Login menu removed
+- **Preview changes:**
+  - Footer: the "Quick Links" column (Privacy Policy, Terms and Conditions, Refund and Returns Policy) is gone from every page. The "Quick Menu" column stays. A small "Privacy Policy" link was added under "©2020 Valencia Wineries. Designed and Developed by ©Techinfinity".
+  - Terms and Conditions page deleted. It ended with a planted **escort spam paragraph** linking to nycescortmodels.com.
+  - Refund and Returns Policy page deleted (no online sales planned).
+  - Privacy Policy replaced with a short policy (contact form only, no tracking, Do Not Track, under-21, your choices, contact). The old long e-commerce policy had ~40 broken links to http://127.0.0.1:5500/... Kept because the Contact Us form collects name, phone and email (California's CalOPPA).
+  - "Login / Register" (person icon, top right): its demo drop-down (Pricing, Order, Making Changes, Wine Tasting & What's Included, Refund Issues, Dine & Drink, Vinery Tours, Make a Reservation, Reservation by Calling, Reservation for Large Groups) removed.
+- **Live site (WordPress):**
+  1. **Footer Quick Links:** Appearance > Widgets > Footer area > remove the "Quick Links" (Custom Menu / Navigation Menu, menu "Footer Menu") widget > Update. Optionally Appearance > Menus > "Footer Menu" > Delete Menu.
+  2. **Privacy link in the copyright line:** Appearance > Widgets > Footer area > the block with "©2020 Valencia Wineries…" > add a line "Privacy Policy" linked to /privacy-policy/ > Update.
+  3. **Terms and Conditions:** Pages > All Pages > Terms and Conditions > Trash. **Refund and Returns Policy:** same. Empty the Trash. Then WooCommerce > Settings > Advanced > "Terms and conditions" page = none (if set).
+  4. **Privacy Policy:** Pages > Privacy Policy > Edit > replace all the text with the new wording on the preview page (https://vivekragavan.github.io/valenciawineries/privacy-policy/) > Update. Settings > Privacy should still point to this page.
+  5. **Login / Register drop-down:** Appearance > Menus > select "My Account Menu" > Delete Menu (or remove all its items) > Save. If the person icon is no longer wanted after online sales are switched off, that is part of a later change.
+  6. **Security:** after removing the spam, change all WordPress admin passwords and check Users for unknown accounts.
