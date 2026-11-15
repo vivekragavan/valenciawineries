@@ -25,3 +25,37 @@ Each change made in this preview copy, and how to make it in WordPress.
 | Homepage 05 (/homepage-05/) | same as Homepage 02 | same as Homepage 02 |
 
 Note: Homepage 02–05 are leftover theme demo pages; deleting them in WordPress (Pages > Trash) would be simpler than editing them.
+
+## 3. Leftover demo pages, demo posts and the spam post removed
+- **Preview change:** the pages and posts below were deleted from the preview. None of them are in the site menu, and no remaining page links to them.
+- **Live site (WordPress):** move each to Trash, then empty the Trash.
+
+**Pages** (WordPress: Pages > All Pages > hover the title > Trash)
+| Page | Address |
+|---|---|
+| Visit (demo stock photos, "BOOK NOW" buttons) | /visit/ |
+| Booking an Event (sub-page of Visit) | /visit/booking-an-event/ |
+| Homepage 02 | /homepage-02/ |
+| Homepage 03 | /homepage-03/ |
+| Homepage 04 | /homepage-04/ |
+| Homepage 05 | /homepage-05/ |
+| Sample Page | /sample-page/ |
+| News, Blog Masonry, Blog Mosaic, Blog Regular (only listed the posts below) | /news/, /news/blog-masonry/, /news/blog-mosaic/, /news/blog-regular/ |
+
+**Posts** (WordPress: Posts > All Posts > hover the title > Trash)
+| Post | Address |
+|---|---|
+| **SPAM:** Three Main Articles About Problem Gambling in the UK (links to casino sites) | /three-main-articles-about-problem-gambling-in-the-uk/ |
+| 1992 Diwine Cabernet Sauvignon Allegra Valley | /1992-diwine-cabernet-sauvignon-allegra-valley/ |
+| Vintage Report: What Made 2016 Such a Marvelous Year for Sangiovese | /vintage-report-what-made-2016-such-a-marvelous-year-for-sangiovese/ |
+| Show Us Your Corks: 2018 California Wine Month Cork Photo Contest | /show-us-your-corks-2018-california-wine-month-cork-photo-contest/ |
+| DiWine Flies High at Air New Zealand Wine Awards 2018 | /diwine-flies-high-at-air-new-zealand-wine-awards-2018/ |
+| Our Selection of Wines for Your Holiday Meals | /our-selection-of-wines-for-your-holiday-meals/ |
+| The Size of Our Vineyards Offer You the Best of the 2018 Vintage | /the-size-of-our-vineyards-offer-you-the-best-of-the-2018-vintage/ |
+| Japan DiWine Estate Honored at Sakura Awards | /japan-diwine-estate-honored-at-sakura-awards/ |
+| Meet Angela Cohen, Wine Ambassador | /meet-angela-cohen-wine-ambassador/ |
+| DiWine Winery 2018 Holiday Gift Guide | /diwine-winery-2018-holiday-gift-guide-elegant-gifts-for-wine-lovers/ |
+
+**Category and tag pages** (/category/…, /tag/…) were also removed from the preview because they only listed these posts. On the live site they disappear by themselves once the posts are deleted; optionally tidy up Posts > Categories and Posts > Tags.
+
+**After deleting the spam post:** change the WordPress admin passwords and check Users for any account you don't recognise. The spam post suggests someone got access.
