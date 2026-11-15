@@ -149,3 +149,18 @@ Careful: before trashing Cart 2 / Checkout 2 / My Account 2, check WooCommerce >
 ## 11. Homepage "Our Wines" hover-box sentence reworded
 - **Preview change:** on the homepage, the back of the "Our Wines" box (shown when hovering over the wine bottle photo, in the row of three boxes below "About Us") now reads "We have a variety of Ragavino Cabernet Sauvignon wines for you to experience". It used to read "From Cabernet Sauvignon, we have a variety of aged wines for you to experience. A number of our red wines are ready now".
 - **Live site (WordPress):** Pages > Home > edit with WPBakery > the Hover Box with the wine bottle photo (heading "Our Wines") > edit > "Back side" content text > replace the sentence > Save > Update.
+
+## 12. Homepage "Our Signature Wines" strip: buttons no longer cut off
+- **Problem:** in narrower browser windows (laptop half-screen, small laptops, tablets) the wine names in the black "Our Signature Wines" strip wrap onto three large lines and push the gold "VIEW WINE" buttons below the strip's bottom edge, so only the top half of each button shows. Full-width desktop windows were fine.
+- **Preview change:** on screens narrower than 1300px the wine names scale down a little and the strip no longer clips its contents, so the whole button shows. Wide screens look exactly as before.
+- **Live site (WordPress):** Appearance > Customize > Additional CSS > paste at the end, then Publish:
+
+```css
+/* Our Signature Wines slider: keep wine names and VIEW WINE buttons inside the strip on narrower screens */
+@media only screen and (max-width: 1300px) {
+  .ozy-tilt_product_slider .carousel-cell>.caption-box h2 { font-size: clamp(18px, 2.6vw, 36px) !important; line-height: 1.25 !important; margin-bottom: 14px !important; }
+  .ozy-tilt_product_slider .carousel-cell>.caption-box { top: 45%; }
+  .ozy-tilt_product_slider .flickity-viewport { overflow: visible !important; }
+  .ozy-tilt_product_slider { padding-bottom: 40px; }
+}
+```
