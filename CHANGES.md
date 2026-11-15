@@ -59,3 +59,26 @@ Note: Homepage 02–05 are leftover theme demo pages; deleting them in WordPress
 **Category and tag pages** (/category/…, /tag/…) were also removed from the preview because they only listed these posts. Not needed on the live site. They disappear by themselves once the posts are deleted; also delete the categories and tags themselves under Posts > Categories and Posts > Tags (tick all > Bulk actions > Delete; "Uncategorized" can't be deleted, which is fine).
 
 **After deleting the spam post:** change the WordPress admin passwords and check Users for any account you don't recognise. The spam post suggests someone got access.
+
+## 4. Site trimmed to the five menu tabs (61 more pages removed)
+- **Keep:** Home, About Us, Wine (the shop), The Vineyard, Contact Us, plus what they need: the 2 wine products (Cabernet Sauvignon 2017 and 2018), the "Reserve" product category, the WooCommerce Cart / Checkout / My Account pages, and the footer pages Privacy Policy, Terms and Conditions, Refund and Returns Policy.
+- **Preview change:** every other page was deleted. None were in the menu or linked from the pages above.
+- **Live site (WordPress):**
+
+**Pages** (Pages > All Pages > tick > Bulk actions > Move to Trash, then empty Trash)
+| Page | Address |
+|---|---|
+| Estate and all its sub-pages: About1, Coming Soon Page, Events, FAQ, Our History, Our Land, Our Region, Our Winemakers, Restaurant, Tasting Room, Wedding & Events, Wine Tourism, Winemaking | /estate/ and /estate/… |
+| Wines 1 and its sub-pages: All Wine Series, Classic, Heritage, Reserve, Sparkling | /wines-1/ and /wines-1/… |
+| Wine Club | /wine-club/ |
+| Shop 1 (duplicate shop) | /shop-1/ |
+| Custom Product Page 01 and 02 | /shop/custom-product-page-01/, /shop/custom-product-page-02/ |
+| Where to Buy (demo store-locator map) | /shop/where-to-buy/ |
+| Custom Header | /custom-header/ |
+| Cart 2, Checkout 2, My Account 2 (duplicates; keep the plain Cart, Checkout, My Account pages) | /cart-2/, /checkout-2/, /my-account-2/ |
+
+Careful: before trashing Cart 2 / Checkout 2 / My Account 2, check WooCommerce > Settings > Advanced > Page setup still points at the plain Cart, Checkout and My Account pages, not the "-2" ones.
+
+**Event calendar** (demo events from the "Timetable and Event Schedule" plugin: weddings, DiWineFest 2019, tastings, dinners…, about 35 pages under /timetable/)
+- Timetable > Events > select all > Move to Trash; Timetable > Columns > select all > Move to Trash; empty the Trash.
+- Then Plugins > "Timetable and Event Schedule" > Deactivate > Delete (it isn't used anywhere else).
