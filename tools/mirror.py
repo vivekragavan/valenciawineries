@@ -86,7 +86,7 @@ def do_page(u):
     t = d.decode("utf-8", "replace")
     a = find_assets(t, None)
     t = rewrite(t)
-    t = re.sub(r'"api_key":"pk\\.[^"]+"', '"api_key":""', t)  # Mapbox token trips GitHub push protection
+    t = re.sub(r'"api_key":"pk\.[^"]+"', '"api_key":""', t)  # Mapbox token trips GitHub push protection
     t = re.sub(r'<meta name="robots"[^>]*>\s*', '', t)
     t = re.sub(r'(<head[^>]*>)', r'\1\n<meta name="robots" content="noindex,nofollow">', t, count=1)
     save(local_path(urllib.parse.urlparse(u).path), t.encode())
