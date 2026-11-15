@@ -135,3 +135,13 @@ Careful: before trashing Cart 2 / Checkout 2 / My Account 2, check WooCommerce >
 ## 9. "Ragavino Cabernet Sauvignon" added under "Our Wines" (Wine tab)
 - **Preview change:** on the Wine tab (/shop/), a second heading "Ragavino Cabernet Sauvignon" sits directly under "Our Wines", same font (Abril Fatface), size and centering. The space below "Our Wines" was reduced so the two lines sit together, with the original space kept before the wine photos.
 - **Live site (WordPress):** Pages > Shop > edit with WPBakery > hover the "Our Wines" Custom Heading > Clone (copy icon) > edit the copy: Text = Ragavino Cabernet Sauvignon > Save. Then on the original "Our Wines" heading > Design Options > padding-bottom 10px; on the new heading > Design Options > padding-top 0, padding-bottom 80px > Update. (Without the padding tweak the two lines will just have a bigger gap between them.)
+
+## 10. 2017 wine address fixed, "Something similar" removed, unused demo styles removed
+- **Preview changes:**
+  - Cabernet Sauvignon 2017's web address changed from the demo leftover /product/2009-white-wine-soave-750ml/ to **/product/cabernet-sauvignon-2017/**; every link to it (homepage, Wine tab, 2018 page) updated.
+  - On both wine pages, the "Can we interest you in… / Something similar" section and the other wine's photo under it removed.
+  - Two unused style rules removed (About Us and Wine tab) that pointed at stock photos on the DiWine theme's own server (s3-eu-west-1.amazonaws.com/diwine/…). They were invisible; this is tidy-up only.
+- **Live site (WordPress):**
+  1. **2017 address:** Products > All Products > Cabernet Sauvignon 2017 > Edit > next to the title, "Permalink: …/2009-white-wine-soave-750ml/" > Edit > type cabernet-sauvignon-2017 > OK > Update. (WordPress normally redirects the old address to the new one automatically.) Then check the homepage "Our Signature Wines" slider's "VIEW WINE" button for 2017 still opens the wine; if not, set its link to /product/cabernet-sauvignon-2017/.
+  2. **"Can we interest you in… Something similar":** this is WooCommerce's "Related products". Simplest: Appearance > Customize > WooCommerce > Product page (or the theme's WooCommerce options) > turn off Related products. If there's no switch, tell me and I'll give an alternative (a small code snippet or a plugin setting).
+  3. **Unused demo styles:** nothing to do by hand; they disappear when About Us and Shop are next saved with WPBakery (Edit > Update).
