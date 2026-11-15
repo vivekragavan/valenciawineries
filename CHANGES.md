@@ -121,3 +121,12 @@ Careful: before trashing Cart 2 / Checkout 2 / My Account 2, check WooCommerce >
   6. **Wine tab heading:** Pages > Shop > edit with WPBakery > heading "Shop" → "Our Wines" > Update.
   7. **Reserve category:** Products > Categories > "Reserve" > Delete (the wines fall back to "Uncategorized").
   8. Optional later: once nothing is sold, the Cart, Checkout and My Account pages can be trashed (Pages), and WooCommerce > Settings > Advanced page settings cleared.
+
+## 8. Contact Us page reduced to one line
+- **Preview change:** the Contact Us page now shows only: "For more information, contact us at vivek@ragavan.org" (the address is a clickable email link). Removed: "How can we help?", "Bookings & Inquiries: vivek@ragavan.org", "Our Address" and "SF Wine Lockers, 440 Talbert Street, Daly City, CA – 94014", "Drop a message for us" and the contact form (Enquiry/Feedback, Name, Last Name, Phone, Email, Question/Comments, Send Message), and the Google map of San Francisco Wine Lockers.
+- **Privacy Policy updated to match:** "Information we collect" now says the site has no forms and that we only receive what people send by email.
+- **Live site (WordPress):**
+  1. Pages > Contact Us > edit with WPBakery > delete the two rows below the heading (left column: "How can we help?", "Bookings & Inquiries", "Our Address", address; right column: "Drop a message for us" + contact form; and the map row).
+  2. Add a Text Block with: For more information, contact us at vivek@ragavan.org (select the email and link it to mailto:vivek@ragavan.org) > Update.
+  3. Optional: Contact > Contact Forms (Contact Form 7) — the form is no longer used; the plugin can be deactivated (Plugins > Contact Form 7 > Deactivate).
+  4. Pages > Privacy Policy > Edit > replace the first paragraph under "Information we collect" with: "We do not sell anything through this website, it has no forms, and we do not use advertising or tracking services. If you email us at the address on our Contact Us page, we receive your email address and whatever you choose to include in your message." > Update.
