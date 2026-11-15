@@ -97,3 +97,7 @@ Careful: before trashing Cart 2 / Checkout 2 / My Account 2, check WooCommerce >
   4. **Privacy Policy:** Pages > Privacy Policy > Edit > replace all the text with the new wording on the preview page (https://vivekragavan.github.io/valenciawineries/privacy-policy/) > Update. Settings > Privacy should still point to this page.
   5. **Login / Register drop-down:** Appearance > Menus > select "My Account Menu" > Delete Menu (or remove all its items) > Save. If the person icon is no longer wanted after online sales are switched off, that is part of a later change.
   6. **Security:** after removing the spam, change all WordPress admin passwords and check Users for unknown accounts.
+
+## 6. Footer credit line removed
+- **Preview change:** "©2020 Valencia Wineries. Designed and Developed by ©Techinfinity" removed from the footer of every page (it appeared nowhere else). The small "Privacy Policy" link stays in that spot.
+- **Live site (WordPress):** Appearance > Widgets > Footer area > the block containing "©2020 Valencia Wineries… Techinfinity" > delete that text, leaving only the "Privacy Policy" link (added in change 5) > Update. If the text isn't in Widgets, look in Appearance > Customize > Footer (theme options) for a "copyright" field.
