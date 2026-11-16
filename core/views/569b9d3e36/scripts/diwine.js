@@ -863,7 +863,7 @@ jQuery(document).ready(function($) {
 			loadingClass: 'loader-container',
 			loadingInner: '<div id="loader-container"><div class="loader-ring"><div class="loader-ring-light"></div><div class="loader-ring-track"></div></div><div class="chalice"><div class="liquid red-wine"></div></div></div>',
 			timeout: true,
-			timeoutCountdown: 3000,
+			timeoutCountdown: 500,
 			onLoadEvent: true,
 			browser: [ 'animation-duration', '-webkit-animation-duration'],
 			overlay : false,
