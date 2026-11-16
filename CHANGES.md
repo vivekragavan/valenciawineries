@@ -2,6 +2,38 @@
 
 Each change made in this preview copy, and how to make it in WordPress.
 
+## Live site status (updated November 15, 2026)
+
+**All 12 changes below are live on valenciawineries.org.** They were applied in WordPress on November 14–15, 2026, and each was checked on the live site afterwards.
+
+How some of them were actually done on the live site (where it differed from the notes below):
+- **Pages removed (changes 2–4):** 36 pages trashed. On the live site, WooCommerce uses the labelled pages "Cart — Cart Page", "Checkout — Checkout Page" and "My Account — My Account Page" (addresses /cart/, /checkout/, /my-account/); the plain 2018 duplicates were the ones trashed. The Wine tab (/shop/) is the plain "Shop" page; "Shop — Shop Page" (/shop-1/) is WooCommerce's own product list and was kept but hidden from search engines (All in One SEO > Advanced > No Index). Both broken "Wines" pages (they redirected to themselves) were also trashed.
+- **Demo login menu (change 5):** on the live site it was called "FAQ Menu" (locations Account Menu / Logged in Account Menu). Deleted, along with the unused "Footer Menu".
+- **Privacy Policy (change 5):** replaced via WPBakery > Classic Mode > Code tab; dated November 15, 2026.
+- **Online buying off (change 7):** prices cleared on both wines; "Dummy product" draft trashed; WooCommerce PayPal Payments plugin deactivated; Direct Bank Transfer, Check and Cash on Delivery disabled; Reserve category deleted. The header cart bubble, ORDER LIST drawer, Login/Register icon, SKU/Category line and Wine-tab "Read more" buttons are hidden with Additional CSS (Appearance > Customize > Additional CSS), which also holds the change 12 slider fix and the change 10 "Something similar" rule:
+
+```css
+.menu-item-account, a.cart-contents, #cart-overlay, #woocommerce-cart-wrapper { display: none !important; }
+.single-product .product_meta { display: none !important; }
+.woocommerce ul.products li.product a.button { display: none !important; }
+.single-product section.related.products { display: none !important; }
+```
+
+- **Homepage buttons (change 7):** in the Hero Slider and the Our Signature Wines (Tilt Carousel) items, the button text is the link's title: edit item > Link > Select URL > Link Text.
+- **Contact Us (change 8):** Contact Form 7 plugin deactivated.
+
+**Other work done on the live site (not in the preview):**
+- Backup made first (UpdraftPlus, November 15, 2026).
+- Spam removed: Terms and Conditions page (escort spam) and the gambling post.
+- Admin accounts deleted: "wordpress" (ID 123456, backdoor-style account), "Theme support" (gfxbandits), "Valencia" (Techinfinity) and "Vivek" (ID 1, gfxbandits; its content was moved to vivekragavan). vivekragavan is now the only admin.
+- Plugins: 8 unused or vulnerable plugins deleted (Booked, Elementor, Elementor Pro, Essential Addons, All-in-One WP Migration, Slider Revolution, Ultimate Addons for Elementor, WP File Manager) plus Timetable and Event Schedule; 12 plugins updated.
+- Settings: "Anyone can register" turned off; WooCommerce "Completed order" customer email turned off.
+- Orders: 2019 test orders #2414 and #2415 cancelled; #4578 (Nov 2025, $195) marked Completed pending a phone check with the customer; #4458 and #4454 settled.
+
+**Still open:**
+1. **WPBakery licence:** WPBakery 8.7.2 can't be updated to 9.1 (security fixes) without a licence. Low risk for now (single admin, no registration, hidden login), but it should be resolved.
+2. **Theme licence:** WordPress warns "Your Diwine – Child theme purchase code seems used for other domains too". Ask Sahil where the theme came from; if there is no licence in our name, buy one on ThemeForest and reinstall the theme from the official download (after a fresh backup). This may also cover WPBakery updates, since it is often bundled with the theme.
+
 ## 1. "Our Team" photos no longer clickable (homepage)
 - **Preview change:** Nick Painter's photo (IMG_6333) and Peter Kirchner's photo (Artboard 11) linked to the theme's demo shop, https://diwine.freevision.me/shop/. The link was removed; the photos display as before but clicking does nothing.
 - **Live site (WordPress):** Pages > Home > edit with WPBakery > "Our Team" row > each Single Image element > "On click action" = None (and clear the link field) > Update. Afterwards check that both photos still appear (this theme hides un-linked images unless it adds its own reveal effect).
