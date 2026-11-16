@@ -12,9 +12,13 @@ an output folder and turns it into the real site:
   * images and plugin files no page uses are left out
   * a zip ready to upload is written next to the folder
 
-    python3 tools/build_live.py <output-folder>
+    python3 tools/build_live.py <output-folder>            (Hostinger: .htaccess + zip)
+    python3 tools/build_live.py --github <output-folder>   (GitHub Pages)
 
-Upload: Hostinger File Manager > public_html > upload the zip > Extract.
+Hostinger upload: File Manager > public_html > upload the zip > Extract.
+GitHub Pages: the output folder is a clone of vivekragavan/valenciawineries-live;
+its .git is kept, so afterwards commit and push there to publish. GitHub Pages
+ignores .htaccess, so old addresses get small forwarding pages instead.
 """
 import datetime
 import pathlib
@@ -25,6 +29,7 @@ import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://valenciawineries.org"
+GITHUB_DOMAIN = "www.valenciawineries.org"
 BASE = "/valenciawineries/"
 
 PAGES = [  # (path, sitemap priority)
@@ -65,6 +70,29 @@ ExpiresByType image/webp "access plus 30 days"
 ExpiresByType image/svg+xml "access plus 30 days"
 ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
+"""
+
+
+# Same redirects as .htaccess, as forwarding pages (GitHub Pages has no server redirects).
+FORWARDS = {
+    "product/2009-white-wine-soave-750ml/": "/product/cabernet-sauvignon-2017/",
+    "shop-1/": "/shop/", "cart/": "/shop/", "checkout/": "/shop/", "my-account/": "/shop/",
+    "product-category/reserve/": "/shop/",
+    "terms-and-conditions/": "/privacy-policy/", "refund_returns/": "/privacy-policy/",
+    "wp-admin/": "/", "wp-login.php/": "/", "newlogin/": "/", "login/": "/",
+}
+
+
+def forward_page(target: str) -> str:
+    url = SITE + target
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Valencia Wineries</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{url}">
+<meta http-equiv="refresh" content="0; url={target}">
+<script>location.replace("{target}" + location.hash);</script>
+</head><body><p>This page has moved to <a href="{target}">{url}</a>.</p></body></html>
 """
 
 
@@ -140,12 +168,20 @@ def referenced_files(out: pathlib.Path) -> set:
 
 
 def main() -> None:
-    if len(sys.argv) != 2:
+    global SITE
+    args = sys.argv[1:]
+    github = "--github" in args
+    args = [a for a in args if a != "--github"]
+    if len(args) != 1:
         sys.exit(__doc__)
-    out = pathlib.Path(sys.argv[1]).resolve()
-    if out.exists():
-        shutil.rmtree(out)
-    out.mkdir(parents=True)
+    if github:
+        SITE = "https://" + GITHUB_DOMAIN
+    out = pathlib.Path(args[0]).resolve()
+    out.mkdir(parents=True, exist_ok=True)
+    for item in out.iterdir():  # empty the folder but keep its git history
+        if item.name == ".git":
+            continue
+        shutil.rmtree(item) if item.is_dir() else item.unlink()
 
     for item in ROOT.iterdir():
         if item.name in SKIP_TOP:
@@ -166,23 +202,36 @@ def main() -> None:
     urls = "".join(f"  <url><loc>{SITE}/{p}</loc><lastmod>{today}</lastmod><priority>{pr}</priority></url>\n" for p, pr in PAGES)
     (out / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n'
                                      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "</urlset>\n")
-    (out / ".htaccess").write_text(HTACCESS.format(date=today))
+    if github:
+        (out / "CNAME").write_text(GITHUB_DOMAIN + "\n")
+        (out / ".nojekyll").write_text("")
+        for path, target in FORWARDS.items():
+            (out / path).mkdir(parents=True, exist_ok=True)
+            (out / path / "index.html").write_text(forward_page(target), encoding="utf-8")
+    else:
+        (out / ".htaccess").write_text(HTACCESS.format(date=today))
 
     # leave out files that nothing uses
     keep = referenced_files(out)
-    keep |= {(out / n).resolve() for n in ("404.html", "robots.txt", "sitemap.xml", ".htaccess")}
+    keep |= {(out / n).resolve() for n in ("404.html", "robots.txt", "sitemap.xml", ".htaccess", "CNAME", ".nojekyll")}
     keep |= {p.resolve() for p in out.glob("**/index.html")}
     removed = 0
     for f in sorted(out.rglob("*")):
+        if ".git" in f.relative_to(out).parts:
+            continue
         if f.is_file() and f.resolve() not in keep:
             f.unlink()
             removed += 1
-    for d in sorted((p for p in out.rglob("*") if p.is_dir()), key=lambda p: len(p.parts), reverse=True):
+    for d in sorted((p for p in out.rglob("*") if p.is_dir() and ".git" not in p.relative_to(out).parts),
+                    key=lambda p: len(p.parts), reverse=True):
         if not any(d.iterdir()):
             d.rmdir()
 
-    files = [f for f in out.rglob("*") if f.is_file()]
+    files = [f for f in out.rglob("*") if f.is_file() and ".git" not in f.relative_to(out).parts]
     size = sum(f.stat().st_size for f in files)
+    if github:
+        print(f"{len(files)} files, {size / 1e6:.1f} MB in {out} ({removed} unused files left out)")
+        return
     zpath = out.with_suffix(".zip")
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
         for f in sorted(files):
