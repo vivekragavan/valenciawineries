@@ -204,3 +204,7 @@ Careful: before trashing Cart 2 / Checkout 2 / My Account 2, check WooCommerce >
 ## 14. Privacy Policy: postal address removed from "Contact us"
 - **Change:** the "Contact us" section at the end of the Privacy Policy no longer shows "Valencia Wineries, 45 Valencia Court, Portola Valley, CA 94028, United States"; only "Email: vivek@ragavan.org" remains.
 - **Live site:** published via vivekragavan/valenciawineries-live.
+
+## 15. Homepage and About Us: Portola Valley street reference removed
+- **Change:** "Thus was born Valencia Wineries, named after the Portola Valley Street in which the vineyard is located." now reads "Thus was born Valencia Wineries." (homepage story and About Us).
+- **Live site:** published via vivekragavan/valenciawineries-live.
