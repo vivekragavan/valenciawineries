@@ -2,10 +2,6 @@
 
 Each change made in this preview copy, and how to make it in WordPress.
 
-## 13. Homepage welcome slide: "Producers of Ragavino Cabernet Sauvignon" added
-- **Change:** the first homepage slide now reads "Welcome to Valencia Wineries", then the SEE OUR WINES button, then "Producers of Ragavino Cabernet Sauvignon" below the button, so heading and tagline frame the button symmetrically. Same font as the subtitles on slides 2 and 3.
-- **Live site:** valenciawineries.org is now the static copy on GitHub Pages (no WordPress); published by rebuilding with `tools/build_live.py --github` and pushing vivekragavan/valenciawineries-live.
-
 ## Live site status (updated November 15, 2026)
 
 **All 12 changes below are live on valenciawineries.org.** They were applied in WordPress on November 14–15, 2026, and each was checked on the live site afterwards.
@@ -200,3 +196,7 @@ Careful: before trashing Cart 2 / Checkout 2 / My Account 2, check WooCommerce >
   .ozy-tilt_product_slider { padding-bottom: 40px; }
 }
 ```
+
+## 13. Homepage welcome slide: "Producers of Ragavino Cabernet Sauvignon" added
+- **Change:** the first homepage slide now reads "Welcome to Valencia Wineries", then the SEE OUR WINES button, then "Producers of Ragavino Cabernet Sauvignon" below the button, so heading and tagline frame the button symmetrically. Same font as the subtitles on slides 2 and 3.
+- **Live site:** valenciawineries.org is now the static copy on GitHub Pages (no WordPress); published by rebuilding with `tools/build_live.py --github` and pushing vivekragavan/valenciawineries-live.
