@@ -200,3 +200,7 @@ Careful: before trashing Cart 2 / Checkout 2 / My Account 2, check WooCommerce >
 ## 13. Homepage welcome slide: "Producers of Ragavino Cabernet Sauvignon" added
 - **Change:** the first homepage slide now reads "Welcome to Valencia Wineries", then the SEE OUR WINES button, then "Producers of Ragavino Cabernet Sauvignon" below the button, so heading and tagline frame the button symmetrically. Same font as the subtitles on slides 2 and 3.
 - **Live site:** valenciawineries.org is now the static copy on GitHub Pages (no WordPress); published by rebuilding with `tools/build_live.py --github` and pushing vivekragavan/valenciawineries-live.
+
+## 14. Privacy Policy: postal address removed from "Contact us"
+- **Change:** the "Contact us" section at the end of the Privacy Policy no longer shows "Valencia Wineries, 45 Valencia Court, Portola Valley, CA 94028, United States"; only "Email: vivek@ragavan.org" remains.
+- **Live site:** published via vivekragavan/valenciawineries-live.
