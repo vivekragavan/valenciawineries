@@ -35,7 +35,7 @@ BASE = "/valenciawineries/"
 PAGES = [  # (path, sitemap priority)
     ("", "1.0"), ("about-us/", "0.8"), ("shop/", "0.8"), ("the-vineyard/", "0.8"),
     ("product/cabernet-sauvignon-2017/", "0.7"), ("product/cabernet-sauvignon-2018/", "0.7"),
-    ("contact-us/", "0.6"), ("privacy-policy/", "0.3"),
+    ("stores/", "0.7"), ("contact-us/", "0.6"), ("privacy-policy/", "0.3"),
 ]
 
 SKIP_TOP = {".git", "tools", "README.md", "CHANGES.md", ".nojekyll", ".gitignore", ".DS_Store"}

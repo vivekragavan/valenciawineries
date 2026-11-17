@@ -208,3 +208,13 @@ Careful: before trashing Cart 2 / Checkout 2 / My Account 2, check WooCommerce >
 ## 15. Homepage and About Us: Portola Valley street reference removed
 - **Change:** "Thus was born Valencia Wineries, named after the Portola Valley Street in which the vineyard is located." now reads "Thus was born Valencia Wineries." (homepage story and About Us).
 - **Live site:** published via vivekragavan/valenciawineries-live.
+
+## 16. New "Stores" tab: where to buy Ragavino Cabernet Sauvignon
+- **Change:** new page /stores/ ("Stores" in the top menu, first on the right of the logo: Home, About Us, Wine | Stores, Contact Us, The Vineyard; also in the phone menu and the footer Quick Menu). Text: "Here are the stores where you can buy Ragavino Cabernet Sauvignon", then four stores with address and website (addresses taken from the stores' own websites, Nov 16 2026):
+  - Bianchini's Market – Portola Valley: 3130 Alpine Road, Portola Valley, CA 94028 – www.bianchinismarket.com (Portola Valley location page)
+  - Bianchini's Market – San Carlos: 810 Laurel Street, San Carlos, CA 94070 – www.bianchinismarket.com (San Carlos location page)
+  - Roberts Market – Portola Valley: 4420 Alpine Road, Portola Valley, CA 94028 – www.robertsmarket.com
+  - Roberts Market – Woodside: 3015 Woodside Road, Woodside, CA 94062 – www.robertsmarket.com
+- Store links open in a new tab. Page added to sitemap.xml.
+- **Also:** on phones, the first line of the Contact Us page (and the new Stores page) was half hidden behind the logo bar; fixed, and the page title now shows on phones.
+- **Live site:** published via vivekragavan/valenciawineries-live.
